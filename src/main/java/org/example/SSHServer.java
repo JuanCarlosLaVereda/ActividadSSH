@@ -6,7 +6,7 @@ import java.nio.file.*;
 
 public class SSHServer {
     private static final int SERVER_PORT = 5000;
-    private static final String AUTHORIZED_KEYS_PATH = System.getProperty("user.home") + "/Desktop/Tareas DAM/ssh/authorized_keys";
+    private static final String AUTHORIZED_KEYS_PATH = System.getProperty("user.home") + "/ssh/authorized_keys";
 
     public static void main(String[] args) {
         try (ServerSocket serverSocket = new ServerSocket(SERVER_PORT)) {

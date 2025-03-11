@@ -10,9 +10,9 @@ import java.nio.file.*;
 import java.time.*;
 
 public class SSHClient {
-    private static final String KEY_PATH = System.getProperty("user.home") + "/Desktop/Tareas DAM/ssh/id_rsa";
+    private static final String KEY_PATH = System.getProperty("user.home") + "/ssh/id_rsa";
     private static final int SERVER_PORT = 5000;
-    private static final String SERVER_IP = "127.0.0.1";
+    private static final String SERVER_IP = "localhost";
 
     public static void main(String[] args) {
         if (!keyExists() || isKeyExpired()) {
@@ -64,7 +64,7 @@ public class SSHClient {
         try {
             JSch jsch = new JSch();
             jsch.addIdentity(KEY_PATH);
-            Session session = jsch.getSession("usuario", "localhost", 22);
+            Session session = jsch.getSession("usuario", SERVER_IP, 22);
             session.setConfig("StrictHostKeyChecking", "no");
             session.connect();
             System.out.println("Conectado a SSH correctamente.");
